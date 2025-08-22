@@ -56,7 +56,7 @@ When modifying components:
 
 The `src/config.ts` exports a `siteConfig` object with these sections:
 - Basic info: name, title, description, accentColor
-- Social links: email, linkedin, twitter, github (all optional)
+- Social links: email, linkedin, github (all optional)
 - aboutMe: string
 - skills: string[]
 - projects: array of {name, description, link, skills}
