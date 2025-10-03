@@ -30,7 +30,7 @@ export const siteConfig = {
       name: "Elecshion - School Voting Software",
       description:
         "Developed a desktop application for school elections featuring secure voting, dynamic candidate management, and real-time result visualization, with an intuitive CustomTkinter-based UI that supports CSV import, candidate images, and interactive bar chart displays.",
-      link: "https://github.com/aayushkdev/vellorun-backend",
+      link: "https://github.com/aayushkdev/E-voting-Software",
       skills: ["Python", "Customtkinter"],
     },
     {
