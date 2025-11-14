@@ -1,6 +1,24 @@
-/* Minimal index.css - project uses tailwind CDN but keep this file for Vite entry */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html, body, #root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/public/fonts/DMSans.ttf') format('truetype');
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'VT323';
+  src: url('/public/fonts/VT323.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
