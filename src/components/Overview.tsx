@@ -20,7 +20,6 @@ const Overview: React.FC = () => {
       id="overview"
       className="relative mx-auto flex lg:h-screen lg:max-h-screen flex-col lg:items-center lg:justify-center lg:overflow-hidden px-4 py-4 sm:px-8 sm:py-8"
     >
-      {/* Mobile Header - Only visible on mobile */}
       <div className="lg:hidden mb-6">
         <h1 className="font-mono text-3xl tracking-wider text-red-500 mb-2">AAYUSH KUMAR</h1>
         <p className="text-base text-gray-400 mb-3">
@@ -39,7 +38,6 @@ const Overview: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Photo - Only visible on mobile */}
       <div className="lg:hidden mb-6 flex justify-center">
         <div className="w-32 h-32 overflow-hidden rounded-lg border border-white/10">
           <img
@@ -51,9 +49,7 @@ const Overview: React.FC = () => {
         </div>
       </div>
 
-      {/* Main grid - Desktop layout + mobile content */}
       <div className="grid w-full max-w-6xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 gap-4 sm:gap-6 lg:h-full lg:max-h-[calc(100vh-8rem)]">
-        {/* Headshot - Hidden on mobile, visible on desktop */}
         <GridItem className="hidden lg:flex items-center justify-center">
           <div className="aspect-square w-full overflow-hidden rounded-lg border border-white/10">
             <img
@@ -65,7 +61,6 @@ const Overview: React.FC = () => {
           </div>
         </GridItem>
 
-        {/* About */}
         <GridItem>
           <h3 className="font-mono text-lg sm:text-xl text-red-400">// about</h3>
           <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-300 leading-relaxed">
@@ -78,7 +73,6 @@ const Overview: React.FC = () => {
           </p>
         </GridItem>
 
-        {/* Experience */}
         <GridItem>
           <h3 className="font-mono text-lg sm:text-xl text-red-400">// experience</h3>
           <div className="mt-3 sm:mt-4 space-y-3 sm:space-y-4 text-base sm:text-lg text-gray-300">
@@ -93,7 +87,6 @@ const Overview: React.FC = () => {
           </div>
         </GridItem>
 
-        {/* Skills */}
         <GridItem className="sm:col-span-2 lg:col-span-2">
           <h3 className="font-mono text-lg sm:text-xl text-red-400">// skill inventory</h3>
           <div className="mt-3 sm:mt-4 flex flex-wrap gap-2 sm:gap-3">
@@ -110,7 +103,6 @@ const Overview: React.FC = () => {
           </div>
         </GridItem>
 
-        {/* Projects */}
         <GridItem>
           <h3 className="font-mono text-lg sm:text-xl text-red-400">// featured projects</h3>
           <div className="mt-3 sm:mt-4 space-y-2 sm:space-y-3">
@@ -126,14 +118,16 @@ const Overview: React.FC = () => {
                   </p>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <a
-                    href={project.demoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-red-400 transition"
-                  >
-                    <ExternalLinkIcon className="h-5 w-5 sm:h-6 sm:w-6" />
-                  </a>
+                  {project.demoLink && (
+                    <a
+                      href={project.demoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-red-400 transition"
+                    >
+                      <ExternalLinkIcon className="h-5 w-5 sm:h-6 sm:w-6" />
+                    </a>
+                  )}
                   <a
                     href={project.githubLink}
                     target="_blank"

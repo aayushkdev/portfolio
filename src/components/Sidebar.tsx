@@ -33,6 +33,15 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection, setActiveSection }) =>
               / {link.name}
             </button>
           ))}
+          
+          <a
+            href="resume"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block text-left font-mono text-sm sm:text-base lg:text-lg capitalize transition-all duration-200 text-gray-400 hover:text-white lg:hover:translate-x-1 mt-4 lg:mt-0"
+          >
+            / resume
+          </a>
         </nav>
       </div>
       
