@@ -79,7 +79,7 @@ const Overview: React.FC = () => {
             {EXPERIENCES.slice(0, 2).map((experience) => (
               <div key={experience.company}>
                 <p className="text-white font-semibold text-lg sm:text-xl">{experience.company}</p>
-                <p className="text-sm sm:text-base text-gray-500 uppercase tracking-wider">
+                <p className="text-sm sm:text-base text-gray-500 tracking-wider">
                   {experience.role} — {experience.period}
                 </p>
               </div>
