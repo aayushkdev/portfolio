@@ -1,0 +1,6 @@
+/* Minimal index.css - project uses tailwind CDN but keep this file for Vite entry */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
