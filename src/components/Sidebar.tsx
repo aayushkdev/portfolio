@@ -17,7 +17,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection, setActiveSection }) =>
           <span className="hidden lg:block">AAYUSH KUMAR</span>
         </h1>
         <p className="mt-2 sm:mt-4 text-sm sm:text-base text-gray-400 lg:block hidden">
-          Software developer and open-source contributor building scalable solutions and intuitive user experiences.
+          CS Undergrad & Aspiring Software Engineer.
         </p>
         <nav className="mt-3 sm:mt-4 lg:mt-12 flex flex-row lg:flex-col lg:space-y-4 space-x-3 sm:space-x-4 lg:space-x-0">
           {NAV_LINKS.map((link) => (

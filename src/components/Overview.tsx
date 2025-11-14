@@ -2,7 +2,6 @@ import React from 'react';
 import { SKILLS, PROJECTS, EXPERIENCES } from '../constants';
 import { GithubIcon, ExternalLinkIcon, LinkedinIcon, MailIcon } from './Icons';
 
-// Glass-style grid container with blur + transparency
 const GridItem: React.FC<{ children: React.ReactNode; className?: string }> = ({
   children,
   className,
@@ -64,12 +63,10 @@ const Overview: React.FC = () => {
         <GridItem>
           <h3 className="font-mono text-lg sm:text-xl text-red-400">// about</h3>
           <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-300 leading-relaxed">
-            building thoughtful interfaces and efficient systems with a focus on
-            simplicity and usability.
+            I am a second-year computer science student at vit vellore, passionate about open-source development and building systems that balance simplicity and performance.
           </p>
           <p className="mt-2 sm:mt-3 text-base sm:text-lg text-gray-500 leading-relaxed">
-            balancing code precision with creative exploration across open-source
-            projects and design systems.
+            currently building things, breaking a few, and trying to make each one a little better than the last.
           </p>
         </GridItem>
 
