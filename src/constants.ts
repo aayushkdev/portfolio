@@ -76,11 +76,11 @@ export const NAV_LINKS = [
 export const SKILLS: SkillCategory[] = [
   {
     title: "Languages",
-    skills: [{ name: "Python" }, { name: "JavaScript" }, { name: "C/C++" }, { name: "SQL" }],
+    skills: [{ name: "Python" }, { name: "JavaScript" }, { name: "Go" }, { name: "C/C++" }, { name: "SQL" }],
   },
   {
     title: "Frameworks & Libraries",
-    skills: [{ name: "Django" }, { name: "Flask" }, { name: "React.js" }, { name: "Node.js" }],
+    skills: [{ name: "Django" }, { name: "Flask" }, { name: "React.js" }, { name: "Next.js" }, { name: "Node.js" }],
   },
   {
     title: "Tools & Technologies",

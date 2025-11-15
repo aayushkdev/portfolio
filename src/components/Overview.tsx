@@ -22,7 +22,7 @@ const Overview: React.FC = () => {
       <div className="lg:hidden mb-6">
         <h1 className="font-mono text-3xl tracking-wider text-red-500 mb-2">AAYUSH KUMAR</h1>
         <p className="text-base text-gray-400 mb-3">
-          Software developer and open-source contributor building scalable solutions and intuitive user experiences.
+          CS Undergrad & Aspiring Software Engineer.
         </p>
         <div className="flex items-center space-x-4">
           <a href="https://github.com/aayushkdev" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" aria-label="GitHub Profile">
