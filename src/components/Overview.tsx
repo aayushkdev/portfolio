@@ -1,6 +1,7 @@
 import React from 'react';
 import { SKILLS, PROJECTS, EXPERIENCES } from '../constants';
 import { GithubIcon, ExternalLinkIcon, LinkedinIcon, MailIcon } from './Icons';
+import { useDeveloper } from '../contexts/DeveloperContext';
 
 const GridItem: React.FC<{ children: React.ReactNode; className?: string }> = ({
   children,
@@ -14,13 +15,59 @@ const GridItem: React.FC<{ children: React.ReactNode; className?: string }> = ({
 );
 
 const Overview: React.FC = () => {
+  const { isDeveloperMode, clickCount, incrementClick, showDeveloperToast, toastMessage } = useDeveloper();
+
+  const DeveloperToast: React.FC = () => {
+    if (!showDeveloperToast) return null;
+    
+    return (
+      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-gray-900 border border-gray-600 rounded-lg px-6 py-3 shadow-lg animate-bounce">
+        <p className="text-white font-mono text-sm">{toastMessage}</p>
+      </div>
+    );
+  };
+
+  const ProfileImage: React.FC<{ className?: string; isMobile?: boolean }> = ({ 
+    className = "", 
+    isMobile = false 
+  }) => (
+    <div className={`overflow-hidden ${className}`}>
+      <div 
+        className="relative w-full h-full cursor-pointer select-none"
+        onClick={incrementClick}
+      >
+        <img
+          src="/headshot.jpg"
+          alt="Aayush Kumar headshot"
+          className={`h-full w-full object-cover transition-all duration-700 ${
+            isMobile 
+              ? 'hover:brightness-110' 
+              : 'grayscale hover:grayscale-0 hover:brightness-110'
+          }`}
+          loading="lazy"
+        />
+        
+        {isDeveloperMode && (
+          <div className="absolute top-2 right-2 bg-green-500 text-black text-xs px-2 py-1 font-mono font-bold rounded animate-pulse">
+            DEV
+          </div>
+        )}
+      </div>
+    </div>
+  );
+
   return (
     <section
       id="overview"
       className="relative mx-auto flex lg:h-screen lg:max-h-screen flex-col lg:items-center lg:justify-center lg:overflow-hidden px-4 py-4 sm:px-8 sm:py-8"
     >
+      <DeveloperToast />
+      
       <div className="lg:hidden mb-6">
-        <h1 className="font-mono text-3xl tracking-wider text-red-500 mb-2">AAYUSH KUMAR</h1>
+        <h1 className="font-mono text-3xl tracking-wider text-red-500 mb-2">
+          AAYUSH KUMAR
+          {isDeveloperMode && <span className="text-green-400 ml-2 text-lg">[DEV]</span>}
+        </h1>
         <p className="text-base text-gray-400 mb-3">
           CS Undergrad & Aspiring Software Engineer.
         </p>
@@ -38,25 +85,15 @@ const Overview: React.FC = () => {
       </div>
 
       <div className="lg:hidden mb-6 flex justify-center">
-        <div className="w-32 h-32 overflow-hidden rounded-lg border border-white/10">
-          <img
-            src="/headshot.jpg"
-            alt="Aayush Kumar headshot"
-            className="h-full w-full object-cover hover:brightness-110 transition-all duration-700"
-            loading="lazy"
-          />
+        <div className="w-32 h-32 rounded-lg border border-white/10 overflow-hidden">
+          <ProfileImage isMobile={true} />
         </div>
       </div>
 
       <div className="grid w-full max-w-6xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 gap-4 sm:gap-6 lg:h-full lg:max-h-[calc(100vh-8rem)]">
         <GridItem className="hidden lg:flex items-center justify-center">
-          <div className="aspect-square w-full overflow-hidden rounded-lg border border-white/10">
-            <img
-              src="/headshot.jpg"
-              alt="Aayush Kumar headshot"
-              className="h-full w-full object-cover grayscale hover:grayscale-0 hover:brightness-110 transition-all duration-700"
-              loading="lazy"
-            />
+          <div className="aspect-square w-full rounded-lg border border-white/10 overflow-hidden">
+            <ProfileImage isMobile={false} />
           </div>
         </GridItem>
 

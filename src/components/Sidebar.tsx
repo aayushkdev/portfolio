@@ -1,6 +1,7 @@
 import React from 'react';
 import { NAV_LINKS } from '../constants';
 import { GithubIcon, LinkedinIcon, MailIcon } from './Icons';
+import { useDeveloper } from '../contexts/DeveloperContext';
 import type { Section } from '../App';
 
 interface SidebarProps {
@@ -9,6 +10,8 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ activeSection, setActiveSection }) => {
+  const { isDeveloperMode } = useDeveloper();
+
   return (
     <aside className="flex flex-col lg:h-full lg:w-1/3 lg:max-w-sm xl:w-1/4">
       <div className="flex-grow">
@@ -42,6 +45,20 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection, setActiveSection }) =>
           >
             / resume
           </a>
+          
+          {isDeveloperMode && (
+            <button
+              onClick={() => setActiveSection('terminal')}
+              className={`block text-left font-mono text-sm sm:text-base lg:text-lg capitalize transition-all duration-200 ${
+                activeSection === 'terminal'
+                  ? 'text-red-500'
+                  : 'text-gray-400 hover:text-white lg:hover:translate-x-1'
+              }`}
+              title="Developer Mode Activated!"
+            >
+              / terminal
+            </button>
+          )}
         </nav>
       </div>
       

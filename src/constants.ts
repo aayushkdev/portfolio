@@ -96,3 +96,24 @@ export const SKILLS: SkillCategory[] = [
     ],
   },
 ];
+
+export const TERMINAL_COMMANDS = {
+  about: [
+    'Aayush Kumar - Full Stack Developer',
+    'CS Student at VIT Vellore',
+    'Passionate about open-source development',
+    ''
+  ],
+  skills: [
+    'Languages: Python, JavaScript, Go, C/C++, SQL',
+    'Frameworks: Django, Flask, React.js, Next.js, Node.js',
+    'Tools: Docker, Kubernetes, PostgreSQL, MongoDB, Redis, Git, Linux',
+    ''
+  ],
+  contact: [
+    'Email: contact@aayushk.dev',
+    'GitHub: https://github.com/aayushkdev',
+    'LinkedIn: https://linkedin.com/in/aayushkdev',
+    ''
+  ]
+};

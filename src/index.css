@@ -22,3 +22,32 @@ html, body, #root {
   font-style: normal;
   font-display: swap;
 }
+
+@keyframes developer-unlock {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.1) rotate(-5deg); }
+  50% { transform: scale(1.2) rotate(5deg); }
+  75% { transform: scale(1.1) rotate(-2deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.developer-unlock {
+  animation: developer-unlock 0.6s ease-in-out;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #2d3748;
+}
