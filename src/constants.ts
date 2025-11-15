@@ -36,7 +36,7 @@ export const PROJECTS: ProjectItem[] = [
     description: "An open-source PaaS that lets users upload Docker images and instantly host them on Kubernetes, offering a simplified, Heroku-like deployment experience without vendor lock-in.",
     tags: ["TypeScript", "Express.js", "Next.js", "MongoDB", "Docker", "Kubernetes"],
     githubLink: "https://github.com/GDGVIT/kargo-backend",
-    demoLink: "kargo.dscvit.com",
+    demoLink: "https://kargo.dscvit.com",
   },
   {
     title: "Vellorun - gamified exploration app",
