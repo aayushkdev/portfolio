@@ -1,63 +1,64 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { TERMINAL_COMMANDS } from '../constants';
 
+const PROMPT = 'aayush@portfolio:~$';
+
 const Terminal: React.FC = () => {
   const [input, setInput] = useState('');
-  const [history, setHistory] = useState<string[]>(['']);
+  const [history, setHistory] = useState<string[]>([]);
   const terminalRef = useRef<HTMLDivElement>(null);
 
-  const handleCommand = (cmd: string) => {
-    const trimmedCmd = cmd.trim().toLowerCase();
-    const prompt = 'aayush@portfolio:~$ ';
-    const newHistory = [...history, `${prompt} ${cmd}`];
+  const runCommand = (raw: string) => {
+    const cmd = raw.trim().toLowerCase();
+    const output: string[] = [];
 
-    if (trimmedCmd === 'clear') {
+    output.push(`${PROMPT} ${raw}`);
+
+    if (cmd === 'clear') {
       setHistory([]);
-    } else if (TERMINAL_COMMANDS[trimmedCmd as keyof typeof TERMINAL_COMMANDS]) {
-      setHistory([...newHistory, ...TERMINAL_COMMANDS[trimmedCmd as keyof typeof TERMINAL_COMMANDS]]);
-    } else if (trimmedCmd === '') {
-      setHistory([...newHistory]);
-    } else {
-      setHistory([...newHistory, `bash: ${trimmedCmd}: command not found`, '']);
+      return;
     }
+
+    if (cmd in TERMINAL_COMMANDS) {
+      output.push(...TERMINAL_COMMANDS[cmd as keyof typeof TERMINAL_COMMANDS]);
+    } else if (cmd !== '') {
+      output.push(`bash: ${cmd}: command not found`);
+    }
+
+    setHistory((prev) => [...prev, ...output]);
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      handleCommand(input);
+      runCommand(input);
       setInput('');
     }
   };
 
   useEffect(() => {
-    if (terminalRef.current) {
-      terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
-    }
+    const t = terminalRef.current;
+    if (t) t.scrollTop = t.scrollHeight;
   }, [history]);
 
   return (
-    <div 
+    <div
       ref={terminalRef}
-      className="h-full bg-black text-green-400 font-mono text-base p-6 overflow-auto custom-scrollbar"
+      className="terminal-container h-full bg-black text-green-400 font-mono text-base p-6 overflow-auto"
     >
       <div className="space-y-1">
-        {history.map((line, index) => {
-          if (line.startsWith('aayush@portfolio:~$')) {
-            const prompt = 'aayush@portfolio:~$';
-            const command = line.slice(prompt.length).trim();
+        {history.map((line, i) => {
+          const isPrompt = line.startsWith(PROMPT);
+          if (isPrompt) {
+            const cmd = line.replace(PROMPT, '').trim();
             return (
-              <div key={index} style={{ whiteSpace: 'pre' }}>
-                <span className="text-green-400">{prompt}</span>
-                {command && <span className="text-white"> {command}</span>}
+              <div key={i} className="whitespace-pre">
+                <span className="text-green-400">{PROMPT}</span>
+                {cmd && <span className="text-white"> {cmd}</span>}
               </div>
             );
           }
           return (
-            <div 
-              key={index} 
-              className="text-white"
-              style={{ whiteSpace: 'pre' }}
-            >
+            <div key={i} className="text-white whitespace-pre">
               {line}
             </div>
           );
@@ -65,14 +66,13 @@ const Terminal: React.FC = () => {
       </div>
 
       <div className="flex items-center mt-2">
-        <span className="text-green-400 select-none">aayush@portfolio:~$</span>
+        <span className="text-green-400 select-none">{PROMPT}</span>
         <input
-          type="text"
+          autoFocus
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyDown}
           className="bg-transparent text-white outline-none flex-1 ml-3"
-          autoFocus
         />
       </div>
     </div>

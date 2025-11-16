@@ -59,7 +59,7 @@ const Overview: React.FC = () => {
   return (
     <section
       id="overview"
-      className="relative mx-auto flex lg:h-screen lg:max-h-screen flex-col lg:items-center lg:justify-center lg:overflow-hidden px-4 py-4 sm:px-8 sm:py-8"
+      className="relative mx-auto flex lg:h-full lg:max-h-full flex-col lg:items-center lg:justify-center"
     >
       <DeveloperToast />
       
@@ -90,7 +90,8 @@ const Overview: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid w-full max-w-6xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 gap-4 sm:gap-6 lg:h-full lg:max-h-[calc(100vh-8rem)]">
+      <div className="grid w-full max-w-6xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 gap-4 sm:gap-6"
+      >
         <GridItem className="hidden lg:flex items-center justify-center">
           <div className="aspect-square w-full rounded-lg border border-white/10 overflow-hidden">
             <ProfileImage isMobile={false} />

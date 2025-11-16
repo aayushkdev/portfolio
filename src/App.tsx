@@ -30,7 +30,7 @@ const App: React.FC = () => {
     <DeveloperProvider>
       <div className="flex h-full flex-col p-2 sm:p-4 md:p-6 lg:flex-row lg:p-8 lg:gap-8">
         <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
-        <main className={`mt-4 sm:mt-6 flex-1 lg:mt-0 lg:pl-8 ${activeSection === 'overview' ? 'overflow-y-auto lg:overflow-hidden' : 'overflow-y-auto'} custom-scrollbar`}>
+        <main className={`mt-4 sm:mt-6 flex-1 lg:mt-0 lg:pl-8 overflow-y-auto`}>
           {renderSection()}
         </main>
       </div>
