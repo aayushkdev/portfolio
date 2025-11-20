@@ -13,7 +13,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection, setActiveSection }) =>
   const { isDeveloperMode } = useDeveloper();
 
   return (
-    <aside className="flex flex-col lg:h-full lg:w-1/3 lg:max-w-sm xl:w-1/4">
+    <aside className="flex flex-col lg:h-full lg:w-1/3 lg:max-w-sm xl:w-1/4 p-4 sm:p-6 lg:p-8">
       <div className="flex-grow">
         <h1 className="font-mono text-2xl sm:text-3xl lg:text-4xl xl:text-5xl tracking-wider text-red-500">
           <span className="lg:hidden">A.</span>

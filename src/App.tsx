@@ -28,9 +28,9 @@ const App: React.FC = () => {
 
   return (
     <DeveloperProvider>
-      <div className="flex h-full flex-col p-2 sm:p-4 md:p-6 lg:flex-row lg:p-8 lg:gap-8">
+      <div className="flex h-screen flex-col lg:flex-row">
         <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
-        <main className={`mt-4 sm:mt-6 flex-1 lg:mt-0 lg:pl-8 overflow-y-auto`}>
+        <main className={`flex-1 overflow-y-auto lg:h-full p-4 sm:p-6 lg:p-8`}>
           {renderSection()}
         </main>
       </div>

@@ -43,7 +43,7 @@ const Terminal: React.FC = () => {
   return (
     <div
       ref={terminalRef}
-      className="terminal-container h-full bg-black text-green-400 font-mono text-base p-6 overflow-auto"
+      className="terminal-container h-full bg-black text-green-400 font-mono text-base p-4 sm:p-6 lg:p-8 overflow-auto"
     >
       <div className="space-y-1">
         {history.map((line, i) => {
