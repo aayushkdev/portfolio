@@ -59,7 +59,7 @@ const Overview: React.FC = () => {
   return (
     <section
       id="overview"
-      className="relative mx-auto flex lg:h-full lg:max-h-full flex-col lg:items-center lg:justify-center"
+      className="relative mx-auto flex lg:h-full lg:max-h-full flex-col lg:items-center lg:justify-center pb-8 lg:pb-0"
     >
       <DeveloperToast />
       
