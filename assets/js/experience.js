@@ -33,7 +33,7 @@ function renderTabs(data) {
   // Create tab buttons
   data.forEach((exp, index) => {
     const button = document.createElement("button");
-    button.textContent = exp.company;
+    button.textContent = exp.tabLabel || exp.company;
     button.setAttribute("role", "tab");
     button.setAttribute("aria-selected", index === 0 ? "true" : "false");
     button.setAttribute("aria-controls", `panel-${index}`);
