@@ -8,8 +8,12 @@
   background-color: var(--nav-bg, rgba(10, 25, 47, 0.85));
   backdrop-filter: blur(10px);
   z-index: 100;
-  transition: var(--transition);
+  transition: transform 0.3s ease, var(--transition);
   padding: 0 50px;
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
 }
 
 @media (max-width: 1080px) {

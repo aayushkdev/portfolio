@@ -13,11 +13,16 @@ function initNavbar() {
   window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
-    // Add scrolled class for styling
     if (scrollTop > scrollThreshold) {
       navbar.classList.add('scrolled');
+      if (scrollTop > lastScrollTop) {
+        navbar.classList.add('hidden');
+      } else {
+        navbar.classList.remove('hidden');
+      }
     } else {
       navbar.classList.remove('scrolled');
+      navbar.classList.remove('hidden');
     }
     
     lastScrollTop = scrollTop;
