@@ -32,21 +32,29 @@
   {
     "id": 4,
     "title": "Crate",
-    "category": "Systems & Infrastructure",
-    "description": "A container runtime written in Go exploring namespaces, rootless containers, filesystem isolation, and OCI image handling.",
+    "category": "Developer Tools",
+    "description": "A daemonless container runtime written in Go supporting rootless/rootful containers, Linux namespace isolation, OCI image handling, and lightweight container lifecycle management.",
     "githubLink": "https://github.com/aayushkdev/crate",
-    "tech": ["Go", "Namespaces", "cgroups"]
+    "tech": ["Go", "Linux Namespaces", "OCI", "Container Runtime"]
   },
   {
     "id": 5,
+    "title": "perfmon",
+    "category": "Developer Tools",
+    "description": "A terminal-based Linux system monitor and control utility written in Go, featuring live CPU, memory, thermal, power, GPU, and process telemetry alongside interactive controls for CPU governors, EPP, turbo boost, power profiles, and CPU core online state through kernel sysfs interfaces.",
+    "githubLink": "https://github.com/aayushkdev/perfmon",
+    "tech": ["Go", "Linux", "/proc", "/sys"]
+  },
+  {
+    "id": 6,
     "title": "nmsurf",
-    "category": "Systems & Infrastructure",
+    "category": "Developer Tools",
     "description": "A minimal NetworkManager frontend in Go for launcher-based environments like Wofi and Rofi, enabling fast Wi-Fi management.",
     "githubLink": "https://github.com/aayushkdev/nmsurf",
     "tech": ["Go", "NetworkManager", "Wofi"]
   },
   {
-    "id": 6,
+    "id": 7,
     "title": "Disco-AI",
     "category": "Developer Tools",
     "description": "An AI-powered Discord bot with chat features, automation tools, polls, summaries, and reminder management.",
@@ -54,17 +62,16 @@
     "tech": ["Python", "discord.py", "PostgreSQL"]
   },
   {
-    "id": 7,
+    "id": 8,
     "title": "Lofi",
-    "category": "Creative & Interactive",
+    "category": "Web & Applications",
     "description": "A minimal lofi music listening website built with React, featuring animated backgrounds and keyboard-driven controls.",
     "githubLink": "https://github.com/aayushkdev/lofi",
     "demoLink": "https://lofi.aayushk.dev",
-    "tech": ["React", "TailwindCSS"],
-    "image": "lofi.png"
+    "tech": ["React", "TailwindCSS"]
   },
   {
-    "id": 8,
+    "id": 9,
     "title": "Vellorun",
     "category": "Web & Applications",
     "description": "A gamified exploration app with AI-driven suggestions, XP progression, and interactive map-based discovery.",
@@ -72,16 +79,15 @@
     "tech": ["Go", "PostgreSQL", "Gen AI"]
   },
   {
-    "id": 9,
+    "id": 10,
     "title": "2D Car Racer",
-    "category": "Creative & Interactive",
+    "category": "Web & Applications",
     "description": "A 2D racing game built with Python and Pygame featuring obstacle generation and real-time scoring.",
     "githubLink": "https://github.com/aayushkdev/2d-car-racer",
-    "tech": ["Python", "Pygame", "SDL"],
-    "image": "racer.png"
+    "tech": ["Python", "Pygame", "SDL"]
   },
   {
-    "id": 10,
+    "id": 11,
     "title": "Elecshion",
     "category": "Web & Applications",
     "description": "A desktop voting system built with Python for managing school elections with CSV imports and graphical result visualization.",
