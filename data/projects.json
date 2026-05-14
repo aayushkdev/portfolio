@@ -21,6 +21,23 @@
   },
   {
     "id": 3,
+    "title": "Crate",
+    "category": "Developer Tools",
+    "description": "A daemonless container runtime written in Go supporting rootless/rootful containers, Linux namespace isolation, OCI image handling, and lightweight container lifecycle management.",
+    "githubLink": "https://github.com/aayushkdev/crate",
+    "tech": ["Go", "Linux Namespaces", "OCI", "Container Runtime"],
+    "image": "crate.png"
+  },
+  {
+    "id": 4,
+    "title": "perfmon",
+    "category": "Developer Tools",
+    "description": "A terminal-based Linux system monitor and control utility written in Go, featuring live CPU, memory, thermal, power, GPU, and process telemetry alongside interactive controls for CPU governors, EPP, turbo boost, power profiles, and CPU core online state through kernel sysfs interfaces.",
+    "githubLink": "https://github.com/aayushkdev/perfmon",
+    "tech": ["Go", "Linux", "/proc", "/sys"]
+  },
+  {
+    "id": 5,
     "title": "PastezBin",
     "category": "Web & Applications",
     "description": "A browser-based paste tool that compresses text and images directly into URLs using Deflate and base64 encoding.",
@@ -30,36 +47,20 @@
     "image": "pastez.png"
   },
   {
-    "id": 4,
-    "title": "Crate",
-    "category": "Developer Tools",
-    "description": "A daemonless container runtime written in Go supporting rootless/rootful containers, Linux namespace isolation, OCI image handling, and lightweight container lifecycle management.",
-    "githubLink": "https://github.com/aayushkdev/crate",
-    "tech": ["Go", "Linux Namespaces", "OCI", "Container Runtime"]
-  },
-  {
-    "id": 5,
-    "title": "perfmon",
-    "category": "Developer Tools",
-    "description": "A terminal-based Linux system monitor and control utility written in Go, featuring live CPU, memory, thermal, power, GPU, and process telemetry alongside interactive controls for CPU governors, EPP, turbo boost, power profiles, and CPU core online state through kernel sysfs interfaces.",
-    "githubLink": "https://github.com/aayushkdev/perfmon",
-    "tech": ["Go", "Linux", "/proc", "/sys"]
-  },
-  {
     "id": 6,
-    "title": "nmsurf",
-    "category": "Developer Tools",
-    "description": "A minimal NetworkManager frontend in Go for launcher-based environments like Wofi and Rofi, enabling fast Wi-Fi management.",
-    "githubLink": "https://github.com/aayushkdev/nmsurf",
-    "tech": ["Go", "NetworkManager", "Wofi"]
-  },
-  {
-    "id": 7,
     "title": "Disco-AI",
     "category": "Developer Tools",
     "description": "An AI-powered Discord bot with chat features, automation tools, polls, summaries, and reminder management.",
     "githubLink": "https://github.com/aayushkdev/disco-ai",
     "tech": ["Python", "discord.py", "PostgreSQL"]
+  },
+  {
+    "id": 7,
+    "title": "nmsurf",
+    "category": "Developer Tools",
+    "description": "A minimal NetworkManager frontend in Go for launcher-based environments like Wofi and Rofi, enabling fast Wi-Fi management.",
+    "githubLink": "https://github.com/aayushkdev/nmsurf",
+    "tech": ["Go", "NetworkManager", "Wofi"]
   },
   {
     "id": 8,
