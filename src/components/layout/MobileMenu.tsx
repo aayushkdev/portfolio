@@ -64,7 +64,7 @@ const MobileMenu = ({ menuOpen, setMenuOpen }: MobileMenuProps) => {
       )}
 
       <aside
-        className={`md:hidden fixed top-0 right-0 bottom-0 z-40 w-[min(75vw,400px)] h-screen bg-navy-light shadow-[-10px_0_30px_-15px_rgba(2,12,27,0.7)] transition-transform duration-300 flex items-center justify-center ${
+        className={`md:hidden fixed top-0 right-0 bottom-0 z-40 w-[min(75vw,400px)] bg-navy-light shadow-[-10px_0_30px_-15px_rgba(2,12,27,0.7)] transition-transform duration-300 flex items-center justify-center ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >

@@ -4,6 +4,7 @@ import EmailSidebar from '../components/layout/EmailSidebar'
 import Hero from '../components/sections/Hero'
 import About from '../components/sections/About'
 import Experience from '../components/sections/Experience'
+import FeaturedProjects from '../components/sections/FeaturedProjects'
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
         <Hero />
         <About />
         <Experience />
+        <FeaturedProjects />
       </main>
     </div>
   )

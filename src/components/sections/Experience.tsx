@@ -40,8 +40,6 @@ const Experience = () => {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  const activeJob = jobs[activeTab]
-
   return (
     <section
       ref={ref}
