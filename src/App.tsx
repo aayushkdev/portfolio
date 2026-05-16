@@ -1,14 +1,7 @@
-import Navbar from './components/layout/Navbar'
+import Home from './pages/Home'
 
 function App() {
-  return (
-    <div>
-      <Navbar />
-      <main className="pt-[var(--nav-height)]">
-        {/* Sections will go here */}
-      </main>
-    </div>
-  )
+  return <Home />
 }
 
 export default App
