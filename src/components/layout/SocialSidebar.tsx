@@ -32,9 +32,9 @@ const socialLinks = [
 const SocialSidebar = () => {
   return (
     <div className="fixed left-[40px] max-[1200px]:left-[20px] max-[769px]:left-[10px] bottom-0 w-[40px] z-10 max-[769px]:hidden">
-      <ul className="flex flex-col items-center list-none m-0 p-0 after:content-[''] after:block after:w-[1px] after:h-[90px] after:mx-auto after:bg-slate-light">
+      <ul className="flex flex-col items-center list-none m-0 p-0 after:content-[''] after:block after:w-[1px] after:h-[90px] after:mx-auto after:bg-slate-muted after:mt-[20px]">
         {socialLinks.map((link) => (
-          <li key={link.label} className="last-of-type:mb-5">
+          <li key={link.label} className="mb-[5px] last-of-type:mb-0">
             <a
               href={link.url}
               target="_blank"
@@ -42,7 +42,7 @@ const SocialSidebar = () => {
               aria-label={link.label}
               className="p-[10px] block text-slate-light hover:text-accent hover:-translate-y-[3px] transition-all duration-300 focus-visible:outline-none focus-visible:text-accent"
             >
-              <svg className="size-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg className="w-[22px] h-[22px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <title>{link.label}</title>
                 {link.icon}
               </svg>
