@@ -5,6 +5,8 @@ import Hero from '../components/sections/Hero'
 import About from '../components/sections/About'
 import Experience from '../components/sections/Experience'
 import FeaturedProjects from '../components/sections/FeaturedProjects'
+import Contact from '../components/sections/Contact'
+import Footer from '../components/layout/Footer'
 
 function Home() {
   return (
@@ -17,7 +19,9 @@ function Home() {
         <About />
         <Experience />
         <FeaturedProjects />
+        <Contact />
       </main>
+      <Footer />
     </div>
   )
 }
