@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useLayoutEffect } from 'react'
 import projectsData from '../data/projects.json'
 import type { Project } from '../types/project'
 import SEO from '../components/shared/SEO'
@@ -13,6 +13,10 @@ const categories = [...new Set(projects.map(p => p.category))]
 
 function Projects() {
   const [activeFilter, setActiveFilter] = useState('all')
+
+  useLayoutEffect(() => {
+    document.documentElement.scrollTop = 0
+  }, [])
 
   const filtered = activeFilter === 'all'
     ? projects

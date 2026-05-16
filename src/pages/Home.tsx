@@ -1,3 +1,4 @@
+import { useLayoutEffect } from 'react'
 import SEO from '../components/shared/SEO'
 import Navbar from '../components/layout/Navbar'
 import SkipToContent from '../components/layout/SkipToContent'
@@ -11,6 +12,10 @@ import Contact from '../components/sections/Contact'
 import Footer from '../components/layout/Footer'
 
 function Home() {
+  useLayoutEffect(() => {
+    document.documentElement.scrollTop = 0
+  }, [])
+
   return (
     <div>
       <SEO />
