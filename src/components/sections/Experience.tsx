@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import experienceData from '../../data/experience.json'
-import type { Experience } from '../../types/experience'
+import type { Experience as ExperienceType } from '../../types/experience'
 
-const jobs = experienceData as Experience[]
+const jobs = experienceData as ExperienceType[]
 
 const Experience = () => {
   const { ref, isVisible } = useScrollReveal<HTMLElement>()
