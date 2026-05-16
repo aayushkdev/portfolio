@@ -1,4 +1,6 @@
-const IconLogo = () => (
+import { memo } from 'react'
+
+const IconLogo = memo(() => (
   <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 84 96" width="48" height="48">
     <title>Logo</title>
     <g transform="translate(-8,-2)">
@@ -19,6 +21,6 @@ const IconLogo = () => (
       </g>
     </g>
   </svg>
-)
+))
 
 export default IconLogo

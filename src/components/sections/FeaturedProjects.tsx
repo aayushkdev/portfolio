@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import projectsData from '../../data/projects.json'
 import type { Project } from '../../types/project'
@@ -102,7 +103,8 @@ function FeaturedProjects() {
                         <img
                           src="/images/icons/github.svg"
                           alt="GitHub"
-                          className="w-[20px] h-[20px] [filter:invert(85%)_brightness(100%)_contrast(90%)] hover:[filter:invert(76%)_sepia(70%)_saturate(478%)_hue-rotate(101deg)_brightness(101%)_contrast(102%)] transition-all duration-250"
+                          loading="lazy"
+                          className="w-[20px] h-[20px] icon-slate hover:icon-accent transition-all duration-250"
                         />
                       </a>
                     )}
@@ -117,7 +119,8 @@ function FeaturedProjects() {
                         <img
                           src="/images/icons/external.svg"
                           alt="External Link"
-                          className="w-[20px] h-[20px] [filter:invert(85%)_brightness(100%)_contrast(90%)] hover:[filter:invert(76%)_sepia(70%)_saturate(478%)_hue-rotate(101deg)_brightness(101%)_contrast(102%)] transition-all duration-250"
+                          loading="lazy"
+                          className="w-[20px] h-[20px] icon-slate hover:icon-accent transition-all duration-250"
                         />
                       </a>
                     )}
@@ -143,6 +146,7 @@ function FeaturedProjects() {
                     className="rounded w-full h-auto block mix-blend-multiply grayscale contrast-[1] brightness-90 transition-all duration-250 group-hover:filter-none group-hover:mix-blend-normal max-[768px]:object-cover max-[768px]:w-full max-[768px]:h-full max-[768px]:max-h-[280px] max-[768px]:grayscale max-[768px]:contrast-[1] max-[768px]:brightness-50 max-[480px]:max-h-[220px]"
                     src={imagePath}
                     alt={project.title}
+                    loading="lazy"
                   />
                 </a>
               </div>
@@ -152,12 +156,12 @@ function FeaturedProjects() {
       </ul>
 
       <div className="flex justify-center items-center mt-[80px] max-[768px]:mt-[60px] max-[480px]:mt-[40px]">
-        <a
-          href="/projects"
-          className="text-accent font-mono text-[14px] leading-none border border-accent rounded py-[20px] px-[28px] bg-transparent no-underline hover:bg-[rgba(100,255,218,0.1)] transition-all duration-250"
+        <Link
+          to="/projects"
+          className="inline-block text-accent font-mono text-[14px] leading-none border border-accent rounded py-[20px] px-[28px] bg-transparent no-underline cursor-pointer transition-all duration-250 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#64ffda] focus-visible:-translate-x-1 focus-visible:-translate-y-1 focus-visible:shadow-[4px_4px_0_0_#64ffda] focus-visible:outline-none max-[480px]:py-[16px] max-[480px]:px-[24px] max-[480px]:text-[13px] max-[480px]:w-full max-[480px]:max-w-[280px]"
         >
           View All Projects
-        </a>
+        </Link>
       </div>
     </section>
   )

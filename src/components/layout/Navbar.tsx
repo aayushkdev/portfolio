@@ -1,15 +1,57 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { useScrollDirection } from '../../hooks/useScrollDirection'
 import { navLinks } from '../../types/nav'
 import IconHex from '../shared/IconHex'
 import IconLogo from '../shared/IconLogo'
 import MobileMenu from './MobileMenu'
 
-const Navbar = () => {
+interface NavbarProps {
+  variant?: 'full' | 'minimal'
+}
+
+const Navbar = ({ variant = 'full' }: NavbarProps) => {
   const [menuOpen, setMenuOpen] = useState(false)
   const { scrollDirection, scrolledToTop } = useScrollDirection()
-
   const isHidden = scrollDirection === 'down' && !scrolledToTop
+  const location = useLocation()
+
+  const handleLogoClick = useCallback(() => {
+    if (location.hash) {
+      window.history.replaceState(null, '', location.pathname)
+    }
+    window.scrollTo(0, 0)
+  }, [location.hash, location.pathname])
+
+  if (variant === 'minimal') {
+    return (
+      <header
+        className={`fixed top-0 z-50 w-full px-[50px] max-lg:px-10 max-md:px-[25px] transition-all duration-300 bg-navy/85 backdrop-blur-[10px]
+          ${!scrolledToTop
+            ? 'h-[70px] shadow-[0_10px_30px_-10px_rgba(2,12,27,0.7)]'
+            : 'h-[100px]'
+          }
+          ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}
+      >
+        <nav className="flex items-center w-full h-full relative">
+          <Link
+            to="/"
+            aria-label="home"
+            onClick={handleLogoClick}
+            className="group text-accent relative w-[42px] h-[42px] block
+              transition-transform duration-300 hover:-translate-x-1 hover:-translate-y-1"
+          >
+            <div className="absolute top-0 left-0 -z-10 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-[3px]">
+              <IconHex />
+            </div>
+            <div className="relative z-10">
+              <IconLogo />
+            </div>
+          </Link>
+        </nav>
+      </header>
+    )
+  }
 
   return (
     <header
@@ -21,9 +63,10 @@ const Navbar = () => {
         ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}
     >
       <nav className="flex justify-between items-center w-full h-full relative font-mono z-50">
-        <a
-          href="/"
+        <Link
+          to="/"
           aria-label="home"
+          onClick={handleLogoClick}
           className="group text-accent relative w-[42px] h-[42px] block
             transition-transform duration-300 hover:-translate-x-1 hover:-translate-y-1"
         >
@@ -33,7 +76,7 @@ const Navbar = () => {
           <div className="relative z-10">
             <IconLogo />
           </div>
-        </a>
+        </Link>
 
         <div className="flex items-center max-md:hidden">
           <ol className="flex items-center list-none p-0 m-0">
@@ -50,7 +93,7 @@ const Navbar = () => {
             ))}
           </ol>
           <a
-            href="/Aayushkumar_Resume.pdf"
+            href="/resume"
             target="_blank"
             rel="noopener noreferrer"
             className="text-accent border border-accent rounded px-4 py-3 text-[13px] font-mono leading-none ml-[15px]

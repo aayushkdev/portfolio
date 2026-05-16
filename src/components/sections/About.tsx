@@ -1,15 +1,14 @@
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import aboutData from '../../data/about.json'
 
-const { paragraph1, paragraph2, links, skills, image } = aboutData as {
-  paragraph1: string[]
-  paragraph2: string
-  links: Record<string, string>
-  skills: string[]
-  image: string
-}
-
 const About = () => {
+  const { paragraph1, paragraph2, links, skills, image } = aboutData as {
+    paragraph1: string[]
+    paragraph2: string
+    links: Record<string, string>
+    skills: string[]
+    image: string
+  }
   const { ref, isVisible } = useScrollReveal<HTMLElement>()
 
   return (

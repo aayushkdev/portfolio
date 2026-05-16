@@ -8,7 +8,7 @@ const jobs = experienceData as Experience[]
 const Experience = () => {
   const { ref, isVisible } = useScrollReveal<HTMLElement>()
   const [activeTab, setActiveTab] = useState(0)
-  const [highlightStyle, setHighlightStyle] = useState({ transform: 'translateY(0px)' })
+  const [highlightStyle, setHighlightStyle] = useState<{ transform: string; width?: string }>({ transform: 'translateY(0px)' })
   const activeBtnRef = useRef<HTMLButtonElement>(null)
   const tabListRef = useRef<HTMLDivElement>(null)
   const isMobile = useRef(false)

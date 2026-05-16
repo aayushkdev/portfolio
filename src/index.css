@@ -58,6 +58,13 @@
   font-display: auto;
 }
 
+@utility icon-slate {
+  filter: invert(85%) brightness(100%) contrast(90%);
+}
+@utility icon-accent {
+  filter: invert(76%) sepia(70%) saturate(478%) hue-rotate(101deg) brightness(101%) contrast(102%);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

@@ -29,7 +29,9 @@ const socialLinks = [
   },
 ]
 
-const SocialSidebar = () => {
+import { memo } from 'react'
+
+const SocialSidebar = memo(() => {
   return (
     <div className="fixed left-[40px] max-[1200px]:left-[20px] max-[769px]:left-[10px] bottom-0 w-[40px] z-10 max-[769px]:hidden">
       <ul className="flex flex-col items-center list-none m-0 p-0 after:content-[''] after:block after:w-[1px] after:h-[90px] after:mx-auto after:bg-slate-muted after:mt-[20px]">
@@ -52,6 +54,6 @@ const SocialSidebar = () => {
       </ul>
     </div>
   )
-}
+})
 
 export default SocialSidebar
