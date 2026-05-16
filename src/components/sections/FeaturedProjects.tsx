@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import projectsData from '../../data/projects.json'
 import type { Project } from '../../types/project'
@@ -158,12 +157,12 @@ function FeaturedProjects() {
       </ul>
 
       <div className="flex justify-center items-center mt-[80px] max-[768px]:mt-[60px] max-[480px]:mt-[40px]">
-        <Link
-          to="/projects"
+        <a
+          href="/projects"
           className="inline-block text-accent font-mono text-[14px] leading-none border border-accent rounded py-[20px] px-[28px] bg-transparent no-underline cursor-pointer transition-all duration-250 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#64ffda] focus-visible:-translate-x-1 focus-visible:-translate-y-1 focus-visible:shadow-[4px_4px_0_0_#64ffda] focus-visible:outline-none max-[480px]:py-[16px] max-[480px]:px-[24px] max-[480px]:text-[13px] max-[480px]:w-full max-[480px]:max-w-[280px]"
         >
           View All Projects
-        </Link>
+        </a>
       </div>
     </section>
   )
