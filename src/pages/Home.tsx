@@ -1,3 +1,4 @@
+import SEO from '../components/shared/SEO'
 import Navbar from '../components/layout/Navbar'
 import SkipToContent from '../components/layout/SkipToContent'
 import SocialSidebar from '../components/layout/SocialSidebar'
@@ -12,6 +13,7 @@ import Footer from '../components/layout/Footer'
 function Home() {
   return (
     <div>
+      <SEO />
       <SkipToContent />
       <Navbar />
       <SocialSidebar />

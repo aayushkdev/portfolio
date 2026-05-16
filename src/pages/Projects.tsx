@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import projectsData from '../data/projects.json'
 import type { Project } from '../types/project'
+import SEO from '../components/shared/SEO'
 import Navbar from '../components/layout/Navbar'
 import SkipToContent from '../components/layout/SkipToContent'
 import FilterBar from '../components/projects/FilterBar'
@@ -19,6 +20,7 @@ function Projects() {
 
   return (
     <div>
+      <SEO title="Projects" description="A collection of things Aayush Kumar has built." path="/projects" />
       <SkipToContent />
       <Navbar variant="minimal" />
 
