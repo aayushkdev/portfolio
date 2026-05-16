@@ -93,7 +93,7 @@ const Navbar = ({ variant = 'full' }: NavbarProps) => {
             ))}
           </ol>
           <a
-            href="/resume"
+            href="/Aayushkumar_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Resume (opens in new tab)"
