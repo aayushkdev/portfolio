@@ -30,7 +30,7 @@ const ProjectCard = memo(({ project }: ProjectCardProps) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center p-[5px_7px] relative z-[1] hover:text-accent"
-                  aria-label="GitHub Link"
+                  aria-label="GitHub Link (opens in new tab)"
                 >
                   <img
                     src="/images/icons/github.svg"
@@ -46,7 +46,7 @@ const ProjectCard = memo(({ project }: ProjectCardProps) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center p-[5px_7px] relative z-[1] hover:text-accent"
-                  aria-label="External Link"
+                  aria-label="External Link (opens in new tab)"
                 >
                   <img
                     src="/images/icons/external.svg"
@@ -65,6 +65,7 @@ const ProjectCard = memo(({ project }: ProjectCardProps) => {
                 href={primaryLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`${project.title} (opens in new tab)`}
                 className="text-slate hover:text-accent transition-colors duration-250 before:content-[''] before:block before:absolute before:inset-0 before:z-0"
               >
                 {project.title}

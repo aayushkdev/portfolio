@@ -2,6 +2,7 @@ import { useState } from 'react'
 import projectsData from '../data/projects.json'
 import type { Project } from '../types/project'
 import Navbar from '../components/layout/Navbar'
+import SkipToContent from '../components/layout/SkipToContent'
 import FilterBar from '../components/projects/FilterBar'
 import ProjectCard from '../components/projects/ProjectCard'
 import Footer from '../components/layout/Footer'
@@ -18,9 +19,10 @@ function Projects() {
 
   return (
     <div>
+      <SkipToContent />
       <Navbar variant="minimal" />
 
-      <main className="min-h-screen py-[140px] px-[150px] max-[1080px]:px-[100px] max-[768px]:py-[120px] max-[768px]:px-[50px] max-[480px]:py-[100px] max-[480px]:px-[25px]">
+      <main id="main-content" className="min-h-screen py-[140px] px-[150px] max-[1080px]:px-[100px] max-[768px]:py-[120px] max-[768px]:px-[50px] max-[480px]:py-[100px] max-[480px]:px-[25px]">
         <header className="text-center mb-[100px] max-[768px]:mb-[60px]">
           <h1 className="text-[clamp(40px,8vw,80px)] font-semibold leading-[1.1] text-slate m-0">
             All Projects

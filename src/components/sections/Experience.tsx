@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import experienceData from '../../data/experience.json'
 import type { Experience } from '../../types/experience'
@@ -40,6 +40,24 @@ const Experience = () => {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
+  const handleTabKeyDown = useCallback((e: React.KeyboardEvent) => {
+    const dir = isMobile.current ? 'horizontal' : 'vertical'
+    let newIndex = activeTab
+    if (dir === 'vertical') {
+      if (e.key === 'ArrowUp') newIndex = Math.max(0, activeTab - 1)
+      else if (e.key === 'ArrowDown') newIndex = Math.min(jobs.length - 1, activeTab + 1)
+    } else {
+      if (e.key === 'ArrowLeft') newIndex = Math.max(0, activeTab - 1)
+      else if (e.key === 'ArrowRight') newIndex = Math.min(jobs.length - 1, activeTab + 1)
+    }
+    if (e.key === 'Home') newIndex = 0
+    else if (e.key === 'End') newIndex = jobs.length - 1
+    if (newIndex !== activeTab) {
+      e.preventDefault()
+      setActiveTab(newIndex)
+    }
+  }, [activeTab])
+
   return (
     <section
       ref={ref}
@@ -55,12 +73,13 @@ const Experience = () => {
       </h2>
 
       <div className="flex min-h-[340px] max-[768px]:block">
-        <div
-          ref={tabListRef}
-          className="relative z-[3] w-max p-0 m-0 list-none max-[768px]:flex max-[768px]:overflow-x-auto max-[768px]:w-full max-[768px]:mb-[30px]"
-          role="tablist"
-          aria-label="Job tabs"
-        >
+          <div
+            ref={tabListRef}
+            className="relative z-[3] w-max p-0 m-0 list-none max-[768px]:flex max-[768px]:overflow-x-auto max-[768px]:w-full max-[768px]:mb-[30px]"
+            role="tablist"
+            aria-label="Job tabs"
+            onKeyDown={handleTabKeyDown}
+          >
           <div
             className="absolute top-0 left-0 z-10 w-[2px] h-[42px] rounded bg-accent transition-transform duration-250 delay-[0.1s] max-[768px]:top-auto max-[768px]:bottom-0 max-[768px]:w-[var(--tab-width,120px)] max-[768px]:h-[2px]"
             style={highlightStyle}
@@ -101,7 +120,7 @@ const Experience = () => {
                 {job.description.map((item, j) => (
                   <li
                     key={j}
-                    className="relative pl-[30px] mb-[10px] text-slate-muted before:content-['▹'] before:absolute before:left-0 before:text-accent before:text-xl before:leading-[12px]"
+                    className="relative pl-[30px] mb-[10px] text-slate-muted before:content-['▹'] before:absolute before:left-0 before:text-accent before:text-xl before:leading-none before:top-[5px]"
                   >
                     {item}
                   </li>

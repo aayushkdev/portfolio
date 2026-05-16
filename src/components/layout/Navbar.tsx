@@ -33,7 +33,7 @@ const Navbar = ({ variant = 'full' }: NavbarProps) => {
           }
           ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}
       >
-        <nav className="flex items-center w-full h-full relative">
+        <nav aria-label="Primary" className="flex items-center w-full h-full relative">
           <Link
             to="/"
             aria-label="home"
@@ -62,7 +62,7 @@ const Navbar = ({ variant = 'full' }: NavbarProps) => {
         }
         ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}
     >
-      <nav className="flex justify-between items-center w-full h-full relative font-mono z-50">
+      <nav aria-label="Primary" className="flex justify-between items-center w-full h-full relative font-mono z-50">
         <Link
           to="/"
           aria-label="home"
@@ -96,6 +96,7 @@ const Navbar = ({ variant = 'full' }: NavbarProps) => {
             href="/resume"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Resume (opens in new tab)"
             className="text-accent border border-accent rounded px-4 py-3 text-[13px] font-mono leading-none ml-[15px]
               hover:shadow-[4px_4px_0_0_var(--color-accent)] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 inline-block focus-visible:outline-none focus-visible:shadow-[4px_4px_0_0_var(--color-accent)] focus-visible:-translate-x-1 focus-visible:-translate-y-1"
           >

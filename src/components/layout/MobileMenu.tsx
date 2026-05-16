@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef, type KeyboardEvent } from 'react'
 import { navLinks } from '../../types/nav'
 
 interface MobileMenuProps {
@@ -7,15 +7,22 @@ interface MobileMenuProps {
 }
 
 const MobileMenu = ({ menuOpen, setMenuOpen }: MobileMenuProps) => {
+  const menuRef = useRef<HTMLDivElement>(null)
+  const hamburgerRef = useRef<HTMLButtonElement>(null)
+
   useEffect(() => {
     document.body.classList.toggle('overflow-hidden', menuOpen)
 
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMenuOpen(false)
+    const onKeyDown = (e: globalThis.KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMenuOpen(false)
+        hamburgerRef.current?.focus()
+      }
     }
 
     if (menuOpen) {
       window.addEventListener('keydown', onKeyDown)
+      document.querySelector<HTMLAnchorElement>('.mobile-menu-link')?.focus()
     }
 
     return () => {
@@ -24,13 +31,32 @@ const MobileMenu = ({ menuOpen, setMenuOpen }: MobileMenuProps) => {
     }
   }, [menuOpen, setMenuOpen])
 
+  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key !== 'Tab') return
+    const focusable = menuRef.current?.querySelectorAll<HTMLElement>(
+      'a, button, [tabindex]:not([tabindex="-1"])'
+    )
+    if (!focusable || focusable.length === 0) return
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault()
+      last.focus()
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault()
+      first.focus()
+    }
+  }
+
   return (
     <>
       <button
+        ref={hamburgerRef}
         className={`md:hidden flex items-center justify-center relative z-50 mr-[-15px] p-[15px] border-0 bg-transparent text-inherit cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset`}
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Menu"
         aria-expanded={menuOpen}
+        aria-controls="mobile-menu"
       >
         <div className="relative w-[30px] h-[24px]">
           <span
@@ -59,11 +85,21 @@ const MobileMenu = ({ menuOpen, setMenuOpen }: MobileMenuProps) => {
       {menuOpen && (
         <div
           className="fixed inset-0 z-30 bg-black/50 backdrop-blur-sm"
-          onClick={() => setMenuOpen(false)}
+          onClick={() => {
+            setMenuOpen(false)
+            hamburgerRef.current?.focus()
+          }}
+          aria-hidden="true"
         />
       )}
 
-      <aside
+      <div
+        ref={menuRef}
+        id="mobile-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
+        onKeyDown={handleKeyDown}
         className={`md:hidden fixed top-0 right-0 bottom-0 z-40 w-[min(75vw,400px)] bg-navy-light shadow-[-10px_0_30px_-15px_rgba(2,12,27,0.7)] transition-transform duration-300 flex items-center justify-center ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
@@ -77,8 +113,11 @@ const MobileMenu = ({ menuOpen, setMenuOpen }: MobileMenuProps) => {
                 </span>
                 <a
                   href={link.url}
-                  className="text-slate-light font-mono hover:text-accent transition-colors duration-300 inline-block w-full pt-[3px] pb-[20px] px-[20px] focus-visible:outline-none focus-visible:text-accent"
-                  onClick={() => setMenuOpen(false)}
+                  className="mobile-menu-link text-slate-light font-mono hover:text-accent transition-colors duration-300 inline-block w-full pt-[3px] pb-[20px] px-[20px] focus-visible:outline-none focus-visible:text-accent"
+                  onClick={() => {
+                    setMenuOpen(false)
+                    hamburgerRef.current?.focus()
+                  }}
                 >
                   {link.name}
                 </a>
@@ -91,11 +130,12 @@ const MobileMenu = ({ menuOpen, setMenuOpen }: MobileMenuProps) => {
             rel="noopener noreferrer"
             className="text-accent border border-accent rounded px-[50px] py-[18px] w-max text-sm font-mono
               hover:shadow-[4px_4px_0_0_var(--color-accent)] hover:-translate-x-[5px] hover:-translate-y-[5px] transition-all duration-300 mb-10 focus-visible:outline-none focus-visible:shadow-[4px_4px_0_0_var(--color-accent)] focus-visible:-translate-x-[5px] focus-visible:-translate-y-[5px]"
+            aria-label="Resume (opens in new tab)"
           >
             Resume
           </a>
         </nav>
-      </aside>
+      </div>
     </>
   )
 }

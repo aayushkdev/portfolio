@@ -1,4 +1,5 @@
 import Navbar from '../components/layout/Navbar'
+import SkipToContent from '../components/layout/SkipToContent'
 import SocialSidebar from '../components/layout/SocialSidebar'
 import EmailSidebar from '../components/layout/EmailSidebar'
 import Hero from '../components/sections/Hero'
@@ -11,10 +12,11 @@ import Footer from '../components/layout/Footer'
 function Home() {
   return (
     <div>
+      <SkipToContent />
       <Navbar />
       <SocialSidebar />
       <EmailSidebar />
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Experience />

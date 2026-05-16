@@ -35,6 +35,7 @@ const About = () => {
                   href={links[seg]}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`${seg} (opens in new tab)`}
                   className="text-accent relative after:content-[''] after:absolute after:w-full after:h-px after:bottom-0 after:left-0 after:bg-accent after:scale-x-0 after:origin-bottom-right after:transition-transform after:duration-250 after:ease-out hover:after:scale-x-100 hover:after:origin-bottom-left"
                 >
                   {seg}
@@ -49,7 +50,7 @@ const About = () => {
             {skills.map((skill) => (
               <li
                 key={skill}
-                className="relative mb-[10px] pl-[20px] font-mono text-xs text-slate-muted before:content-['▹'] before:absolute before:left-0 before:text-accent before:text-sm before:leading-[12px]"
+                className="relative mb-[10px] pl-[20px] font-mono text-xs text-slate-muted before:content-['▹'] before:absolute before:left-0 before:top-0 before:text-accent before:text-sm before:leading-none"
               >
                 {skill}
               </li>
@@ -61,7 +62,7 @@ const About = () => {
           <div className="group relative w-full rounded bg-accent shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)] transition-all duration-250 hover:-translate-x-1 hover:-translate-y-1">
             <img
               src={image}
-              alt="Profile"
+              alt="Aayushkumar"
               className="relative rounded w-full aspect-square object-cover mix-blend-multiply grayscale contrast-[1] group-hover:mix-blend-normal group-hover:grayscale-0 transition-all duration-250"
             />
             <div className="absolute top-[14px] left-[14px] w-full h-full border-2 border-accent rounded -z-10 transition-all duration-250 group-hover:translate-x-[8px] group-hover:translate-y-[8px]" />

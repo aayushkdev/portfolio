@@ -9,10 +9,10 @@ function Contact() {
       id="contact"
       className={`py-[100px] px-[110px] max-w-[800px] mx-auto text-center mb-[100px] max-[1080px]:py-[100px] max-[1080px]:px-[100px] max-[768px]:py-[80px] max-[768px]:px-[50px] max-[768px]:mb-[50px] max-[480px]:py-[60px] max-[480px]:px-[25px] scroll-mt-[100px] ${isVisible ? 'animate-[fadeIn_0.8s_ease-in_forwards]' : 'opacity-0'}`}
     >
-      <h2 className="block text-accent font-mono text-[16px] font-normal mb-[10px] mt-[10px]">
+      <p className="text-accent font-mono text-[16px] font-normal mb-[10px] mt-[10px]">
         <span className="text-[13px]">04.</span>
         {' '}What's Next?
-      </h2>
+      </p>
 
       <h2 className="text-slate text-[clamp(40px,5vw,60px)] font-semibold m-0">
         Get In Touch

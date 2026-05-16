@@ -54,6 +54,7 @@ function FeaturedProjects() {
                       href={primaryLink}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`${project.title} (opens in new tab)`}
                       className="text-inherit no-underline hover:text-accent transition-colors duration-250 max-[768px]:before:content-[''] max-[768px]:before:block max-[768px]:before:absolute max-[768px]:before:inset-0 max-[768px]:before:z-0"
                     >
                       {project.title}
@@ -97,7 +98,7 @@ function FeaturedProjects() {
                         href={project.githubLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="GitHub Link"
+                        aria-label="GitHub Link (opens in new tab)"
                         className="flex items-center justify-center p-[10px] hover:text-accent max-[480px]:p-[8px]"
                       >
                         <img
@@ -113,7 +114,7 @@ function FeaturedProjects() {
                         href={project.demoLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="External Link"
+                        aria-label="External Link (opens in new tab)"
                         className="flex items-center justify-center p-[10px] hover:text-accent max-[480px]:p-[8px]"
                       >
                         <img
@@ -135,20 +136,21 @@ function FeaturedProjects() {
                     : 'col-span-7 col-start-6'
                 } max-[768px]:col-span-full max-[768px]:max-h-[280px] max-[768px]:opacity-25 max-[480px]:max-h-[220px]`}
               >
-                <a
-                  href={primaryLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full h-full bg-accent rounded group relative overflow-hidden"
-                >
-                  <div className="absolute inset-0 z-[3] mix-blend-screen bg-navy transition-all duration-250 pointer-events-none group-hover:bg-transparent group-focus:bg-transparent" />
-                  <img
-                    className="rounded w-full h-auto block mix-blend-multiply grayscale contrast-[1] brightness-90 transition-all duration-250 group-hover:filter-none group-hover:mix-blend-normal max-[768px]:object-cover max-[768px]:w-full max-[768px]:h-full max-[768px]:max-h-[280px] max-[768px]:grayscale max-[768px]:contrast-[1] max-[768px]:brightness-50 max-[480px]:max-h-[220px]"
-                    src={imagePath}
-                    alt={project.title}
-                    loading="lazy"
-                  />
-                </a>
+                  <a
+                    href={primaryLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${project.title} screenshot (opens in new tab)`}
+                    className="block w-full h-full bg-accent rounded group relative overflow-hidden"
+                  >
+                    <div className="absolute inset-0 z-[3] mix-blend-screen bg-navy transition-all duration-250 pointer-events-none group-hover:bg-transparent group-focus:bg-transparent" />
+                    <img
+                      className="rounded w-full h-auto block mix-blend-multiply grayscale contrast-[1] brightness-90 transition-all duration-250 group-hover:filter-none group-hover:mix-blend-normal max-[768px]:object-cover max-[768px]:w-full max-[768px]:h-full max-[768px]:max-h-[280px] max-[768px]:grayscale max-[768px]:contrast-[1] max-[768px]:brightness-50 max-[480px]:max-h-[220px]"
+                      src={imagePath}
+                      alt={project.title}
+                      loading="lazy"
+                    />
+                  </a>
               </div>
             </li>
           )

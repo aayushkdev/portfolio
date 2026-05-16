@@ -1,9 +1,8 @@
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import heroData from '../../data/hero.json'
 
-const { greeting, name, byline, description } = heroData
-
 const Hero = () => {
+  const { greeting, name, byline, description } = heroData
   const { ref, isVisible } = useScrollReveal<HTMLElement>()
 
   return (
