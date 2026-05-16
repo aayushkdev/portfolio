@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react'
 
-type ScrollDirection = 'up' | 'down'
-
-export function useScrollDirection(): ScrollDirection {
-  const [scrollDirection, setScrollDirection] = useState<ScrollDirection>('up')
+export function useScrollDirection() {
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up')
+  const [scrolledToTop, setScrolledToTop] = useState(true)
 
   useEffect(() => {
     let lastScrollY = window.scrollY
     let ticking = false
 
-    const updateDirection = () => {
+    const update = () => {
       const currentScrollY = window.scrollY
+      setScrolledToTop(currentScrollY < 50)
       if (currentScrollY > lastScrollY) {
         setScrollDirection('down')
       } else if (currentScrollY < lastScrollY) {
@@ -22,7 +22,7 @@ export function useScrollDirection(): ScrollDirection {
 
     const onScroll = () => {
       if (!ticking) {
-        window.requestAnimationFrame(updateDirection)
+        window.requestAnimationFrame(update)
         ticking = true
       }
     }
@@ -31,5 +31,5 @@ export function useScrollDirection(): ScrollDirection {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  return scrollDirection
+  return { scrollDirection, scrolledToTop }
 }

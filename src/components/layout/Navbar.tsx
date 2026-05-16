@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useScrollDirection } from '../../hooks/useScrollDirection'
 import { navLinks } from '../../types/nav'
 import IconHex from '../shared/IconHex'
@@ -6,18 +6,8 @@ import IconLogo from '../shared/IconLogo'
 import MobileMenu from './MobileMenu'
 
 const Navbar = () => {
-  const [scrolledToTop, setScrolledToTop] = useState(true)
   const [menuOpen, setMenuOpen] = useState(false)
-  const scrollDirection = useScrollDirection()
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolledToTop(window.scrollY < 50)
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  const { scrollDirection, scrolledToTop } = useScrollDirection()
 
   const isHidden = scrollDirection === 'down' && !scrolledToTop
 
@@ -47,13 +37,13 @@ const Navbar = () => {
 
         <div className="flex items-center max-md:hidden">
           <ol className="flex items-center list-none p-0 m-0">
-            {navLinks.map((link, i) => (
-                  <li key={i} className="mx-[5px] text-xs relative">
-                    <a
-                      href={link.url}
-                      className="p-[10px] text-slate hover:text-accent transition-colors duration-300 text-sm font-mono"
-                    >
-                  <span className="text-accent text-xs mr-[5px]">{String(i + 1).padStart(2, '0')}.</span>
+            {navLinks.map((link) => (
+              <li key={link.id} className="mx-[5px] text-xs relative">
+                <a
+                  href={link.url}
+                  className="p-[10px] text-slate hover:text-accent transition-colors duration-300 text-sm font-mono focus-visible:outline-none focus-visible:text-accent"
+                >
+                  <span className="text-accent text-xs mr-[5px]">{String(link.id + 1).padStart(2, '0')}.</span>
                   {link.name}
                 </a>
               </li>
@@ -64,7 +54,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="text-accent border border-accent rounded px-4 py-3 text-[13px] font-mono leading-none ml-[15px]
-              hover:shadow-[3px_3px_0_0_#64ffda] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 inline-block"
+              hover:shadow-[4px_4px_0_0_var(--color-accent)] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 inline-block focus-visible:outline-none focus-visible:shadow-[4px_4px_0_0_var(--color-accent)] focus-visible:-translate-x-1 focus-visible:-translate-y-1"
           >
             Resume
           </a>
