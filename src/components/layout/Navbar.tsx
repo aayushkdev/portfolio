@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full px-[50px] max-lg:px-10 max-md:px-[25px] transition-all duration-300 bg-[rgba(10,25,47,0.85)] backdrop-blur-[10px]
+      className={`fixed top-0 z-50 w-full px-[50px] max-lg:px-10 max-md:px-[25px] transition-all duration-300 bg-navy/85 backdrop-blur-[10px]
         ${!scrolledToTop
           ? 'h-[70px] shadow-[0_10px_30px_-10px_rgba(2,12,27,0.7)]'
           : 'h-[100px]'
@@ -50,7 +50,7 @@ const Navbar = () => {
             ))}
           </ol>
           <a
-            href="/resume.pdf"
+            href="/Aayushkumar_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="text-accent border border-accent rounded px-4 py-3 text-[13px] font-mono leading-none ml-[15px]

@@ -86,7 +86,7 @@ const MobileMenu = ({ menuOpen, setMenuOpen }: MobileMenuProps) => {
             ))}
           </ol>
           <a
-            href="/resume.pdf"
+            href="/Aayushkumar_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="text-accent border border-accent rounded px-[50px] py-[18px] w-max text-sm font-mono
