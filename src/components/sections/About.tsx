@@ -1,52 +1,51 @@
+import { useScrollReveal } from '../../hooks/useScrollReveal'
 import aboutData from '../../data/about.json'
-import type { AboutData, AboutSegment } from '../../types/about'
 
-const { numberedHeading, title, paragraphs, skills, image } = aboutData as AboutData
-
-const fadeInClass = 'animate-[fadeIn_0.5s_ease-in_forwards] opacity-0'
-
-function renderSegments(segments: AboutSegment[]) {
-  return segments.map((seg, i) =>
-    seg.type === 'link' ? (
-      <a
-        key={i}
-        href={seg.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-accent link-underline"
-      >
-        {seg.content}
-      </a>
-    ) : (
-      <span key={i}>{seg.content}</span>
-    ),
-  )
+const { paragraph1, paragraph2, links, skills, image } = aboutData as {
+  paragraph1: string[]
+  paragraph2: string
+  links: Record<string, string>
+  skills: string[]
+  image: string
 }
 
 const About = () => {
+  const { ref, isVisible } = useScrollReveal<HTMLElement>()
+
   return (
     <section
+      ref={ref}
       id="about"
-      className="py-[100px] px-[110px] max-w-[1200px] mx-auto max-[1080px]:py-[100px] max-[1080px]:px-[100px] max-[768px]:py-[80px] max-[768px]:px-[50px] max-[480px]:py-[60px] max-[480px]:px-[25px]"
+      className={`py-[100px] px-[110px] max-w-[1200px] mx-auto max-[1080px]:py-[100px] max-[1080px]:px-[100px] max-[768px]:py-[80px] max-[768px]:px-[50px] max-[480px]:py-[60px] max-[480px]:px-[25px] ${isVisible ? 'animate-[fadeIn_0.8s_ease-in_forwards]' : 'opacity-0'}`}
     >
-      <h2
-        className={`flex items-center w-full whitespace-nowrap text-[clamp(26px,5vw,32px)] font-semibold text-slate mb-[40px] ${fadeInClass}`}
-        style={{ animationDelay: '0.1s' }}
-      >
+      <h2 className="flex items-center w-full whitespace-nowrap text-[clamp(26px,5vw,32px)] font-semibold text-slate mb-[40px]">
         <span className="text-accent font-mono text-[clamp(16px,3vw,20px)] font-normal mr-[10px] relative bottom-[4px]">
-          {numberedHeading}
+          01.
         </span>
-        {title}
+        About Me
         <span className="relative block w-[300px] h-[1px] ml-[20px] bg-navy-lightest max-[768px]:w-[200px] max-[480px]:w-[100px] max-[480px]:ml-[10px]" />
       </h2>
 
       <div className="grid grid-cols-[3fr_2fr] gap-[50px] max-[768px]:block">
         <div className="about-text">
-          {paragraphs.map((segments, i) => (
-            <p key={i} className="mb-[15px] text-slate-muted last-of-type:mb-0">
-              {renderSegments(segments)}
-            </p>
-          ))}
+          <p className="mb-[15px] text-slate-muted last-of-type:mb-0">
+            {paragraph1.map((seg, i) =>
+              links[seg] ? (
+                <a
+                  key={i}
+                  href={links[seg]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent link-underline"
+                >
+                  {seg}
+                </a>
+              ) : (
+                <span key={i}>{seg}</span>
+              ),
+            )}
+          </p>
+          <p className="mb-[15px] text-slate-muted last-of-type:mb-0">{paragraph2}</p>
           <ul className="grid grid-cols-[repeat(2,minmax(140px,200px))] gap-x-[10px] gap-y-0 p-0 mt-[20px] overflow-hidden list-none">
             {skills.map((skill) => (
               <li

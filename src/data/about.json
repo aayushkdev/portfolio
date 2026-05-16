@@ -1,18 +1,16 @@
 {
-  "numberedHeading": "01.",
-  "title": "About Me",
-  "paragraphs": [
-    [
-      { "type": "text", "content": "I build low-level systems and developer tools like container runtimes, system monitors, BitTorrent clients, and Kubernetes platforms, mostly in Go and Python. I've worked at a Singapore-based startup, contributed to open source through " },
-      { "type": "link", "content": "Google Summer of Code", "url": "https://summerofcode.withgoogle.com/archive/2025/projects/OQ4Mahel" },
-      { "type": "text", "content": ", and I'm currently building AI-powered developer tools at " },
-      { "type": "link", "content": "LoopedIn AI", "url": "https://loopedin.ai" },
-      { "type": "text", "content": "." }
-    ],
-    [
-      { "type": "text", "content": "Here are a few technologies I've been working with recently:" }
-    ]
+  "paragraph1": [
+    "I build low-level systems and developer tools like container runtimes, system monitors, BitTorrent clients, and Kubernetes platforms, mostly in Go and Python. I've worked at a Singapore-based startup, contributed to open source through ",
+    "Google Summer of Code",
+    ", and I'm currently building AI-powered developer tools at ",
+    "LoopedIn AI",
+    "."
   ],
+  "links": {
+    "Google Summer of Code": "https://summerofcode.withgoogle.com/archive/2025/projects/OQ4Mahel",
+    "LoopedIn AI": "https://loopedin.ai"
+  },
+  "paragraph2": "Here are a few technologies I've been working with recently:",
   "skills": ["Go", "Python", "Node.js", "Docker & Kubernetes", "Linux", "PostgreSQL"],
-  "image": "/data/pixelman.gif"
+  "image": "/images/profile.gif"
 }
