@@ -12,21 +12,24 @@ const MobileMenu = ({ menuOpen, setMenuOpen }: MobileMenuProps) => {
 
   useEffect(() => {
     document.body.classList.toggle('overflow-hidden', menuOpen)
+    const main = document.getElementById('main-content')
+    if (main) main.classList.toggle('blur-sm', menuOpen)
 
     const onKeyDown = (e: globalThis.KeyboardEvent) => {
       if (e.key === 'Escape') {
         setMenuOpen(false)
-        hamburgerRef.current?.focus()
       }
     }
 
     if (menuOpen) {
       window.addEventListener('keydown', onKeyDown)
-      document.querySelector<HTMLAnchorElement>('.mobile-menu-link')?.focus()
+      menuRef.current?.scrollTo(0, 0)
     }
 
     return () => {
       document.body.classList.remove('overflow-hidden')
+      const main = document.getElementById('main-content')
+      if (main) main.classList.remove('blur-sm')
       window.removeEventListener('keydown', onKeyDown)
     }
   }, [menuOpen, setMenuOpen])
@@ -52,7 +55,7 @@ const MobileMenu = ({ menuOpen, setMenuOpen }: MobileMenuProps) => {
     <>
       <button
         ref={hamburgerRef}
-        className={`md:hidden flex items-center justify-center relative z-50 mr-[-15px] p-[15px] border-0 bg-transparent text-inherit cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset`}
+        className="md:hidden flex items-center justify-center relative z-50 mr-[-15px] p-[15px] border-0 bg-transparent text-inherit cursor-pointer focus-visible:outline-none"
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Menu"
         aria-expanded={menuOpen}
@@ -84,11 +87,8 @@ const MobileMenu = ({ menuOpen, setMenuOpen }: MobileMenuProps) => {
 
       {menuOpen && (
         <div
-          className="fixed inset-0 z-30 bg-black/50 backdrop-blur-sm"
-          onClick={() => {
-            setMenuOpen(false)
-            hamburgerRef.current?.focus()
-          }}
+          className="fixed inset-0 z-30"
+          onClick={() => setMenuOpen(false)}
           aria-hidden="true"
         />
       )}
@@ -100,11 +100,11 @@ const MobileMenu = ({ menuOpen, setMenuOpen }: MobileMenuProps) => {
         aria-modal="true"
         aria-label="Navigation menu"
         onKeyDown={handleKeyDown}
-        className={`md:hidden fixed top-0 right-0 bottom-0 z-40 w-[min(75vw,400px)] bg-navy-light shadow-[-10px_0_30px_-15px_rgba(2,12,27,0.7)] transition-transform duration-300 flex items-center justify-center ${
+        className={`md:hidden fixed top-0 right-0 h-screen z-40 w-[min(75vw,400px)] bg-navy-light shadow-[-10px_0_30px_-15px_rgba(2,12,27,0.7)] transition-transform duration-300 flex flex-col ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <nav className="flex flex-col items-center justify-between w-full px-[10px] py-[50px] text-center">
+        <nav className="flex flex-col items-center justify-between w-full px-[10px] py-[50px] text-center bg-navy-light h-full">
           <ol className="list-none p-0 m-0 w-full">
             {navLinks.map((link) => (
               <li key={link.id} className="mb-5 text-[clamp(14px,4vw,22px)]">
@@ -114,10 +114,7 @@ const MobileMenu = ({ menuOpen, setMenuOpen }: MobileMenuProps) => {
                 <a
                   href={link.url}
                   className="mobile-menu-link text-slate-light font-mono hover:text-accent transition-colors duration-300 inline-block w-full pt-[3px] pb-[20px] px-[20px] focus-visible:outline-none focus-visible:text-accent"
-                  onClick={() => {
-                    setMenuOpen(false)
-                    hamburgerRef.current?.focus()
-                  }}
+                  onClick={() => setMenuOpen(false)}
                 >
                   {link.name}
                 </a>
