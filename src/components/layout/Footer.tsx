@@ -35,7 +35,9 @@ const Footer = memo(() => {
           />
         </a>
       </div>
-      <p>Copyright and stuff</p>
+      <p>
+        <a href="https://github.com/aayushkdev/portfolio" target="_blank" rel="noopener noreferrer" className="hover:text-accent relative after:content-[''] after:absolute after:w-full after:h-px after:bottom-0 after:left-0 after:bg-accent after:scale-x-0 after:origin-bottom-right after:transition-transform after:duration-250 after:ease-out hover:after:scale-x-100 hover:after:origin-bottom-left">Copyright and stuff</a>
+      </p>
     </footer>
   )
 })
