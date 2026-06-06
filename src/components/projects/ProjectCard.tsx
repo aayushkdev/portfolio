@@ -75,8 +75,6 @@ const ProjectCard = memo(({ project }: ProjectCardProps) => {
             )}
           </h3>
 
-          <p className="text-accent font-mono text-[13px] mb-[10px]">{project.category}</p>
-
           <p className="text-slate-muted text-[17px]">{project.description}</p>
         </header>
 

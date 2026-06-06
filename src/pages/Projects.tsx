@@ -1,23 +1,14 @@
-import { useState } from 'react'
 import projectsData from '../data/projects.json'
 import type { Project } from '../types/project'
 import SEO from '../components/shared/SEO'
 import Navbar from '../components/layout/Navbar'
 import SkipToContent from '../components/layout/SkipToContent'
-import FilterBar from '../components/projects/FilterBar'
 import ProjectCard from '../components/projects/ProjectCard'
 import Footer from '../components/layout/Footer'
 
 const projects = projectsData as Project[]
-const categories = [...new Set(projects.map(p => p.category))]
 
 function Projects() {
-  const [activeFilter, setActiveFilter] = useState('all')
-
-  const filtered = activeFilter === 'all'
-    ? projects
-    : projects.filter(p => p.category === activeFilter)
-
   return (
     <div>
       <SEO title="Projects" description="A collection of things Aayush Kumar has built." path="/projects" />
@@ -35,23 +26,11 @@ function Projects() {
         </header>
 
         <div className="max-w-[1600px] mx-auto">
-          <FilterBar
-            categories={categories}
-            activeFilter={activeFilter}
-            onFilterChange={setActiveFilter}
-          />
-
-          {filtered.length > 0 ? (
-            <ul className="grid grid-cols-3 gap-[15px] mt-[50px] p-0 list-none max-[1000px]:grid-cols-2 max-[600px]:grid-cols-1">
-              {filtered.map(project => (
-                <ProjectCard key={project.id} project={project} />
-              ))}
-            </ul>
-          ) : (
-            <p className="text-center text-slate-muted font-mono text-[14px] mt-[80px]">
-              No projects found in this category.
-            </p>
-          )}
+          <ul className="grid grid-cols-3 gap-[15px] p-0 list-none max-[1000px]:grid-cols-2 max-[600px]:grid-cols-1">
+            {projects.map(project => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </ul>
         </div>
       </main>
 
