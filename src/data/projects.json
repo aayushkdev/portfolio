@@ -33,13 +33,27 @@
   },
   {
     "id": 5,
+    "title": "rt-go",
+    "description": "A CPU ray tracer written in Go supporting spheres, boxes, quads, triangles, and OBJ meshes with matte, metal, glass, plastic, and emissive materials, BVH acceleration, texture mapping, and JSON-driven scene configuration.",
+    "githubLink": "https://github.com/aayushkdev/rt-go",
+    "tech": ["Go", "Ray Tracing", "BVH", "OBJ", "JSON"]
+  },
+  {
+    "id": 6,
+    "title": "Tokyo OS",
+    "description": "A really basic hobby x86-64 operating system written in C. Bare minimum — framebuffer, serial, GDT/IDT, a timer, keyboard input, and a hardcoded shell with a handful of commands.",
+    "githubLink": "https://github.com/aayushkdev/tokyoOS",
+    "tech": ["C", "x86-64", "NASM", "Limine", "OSDev"]
+  },
+  {
+    "id": 7,
     "title": "perfmon",
     "description": "A terminal-based Linux system monitor and control utility written in Go, featuring live CPU, memory, thermal, power, GPU, and process telemetry alongside interactive controls for CPU governors, EPP, turbo boost, power profiles, and CPU core online state through kernel sysfs interfaces.",
     "githubLink": "https://github.com/aayushkdev/perfmon",
     "tech": ["Go", "Linux", "/proc", "/sys"]
   },
   {
-    "id": 6,
+    "id": 8,
     "title": "PastezBin",
     "description": "A browser-based paste tool that compresses text and images directly into URLs using Deflate and base64 encoding.",
     "githubLink": "https://github.com/aayushkdev/pastez",
@@ -48,21 +62,21 @@
     "image": "pastez.png"
   },
   {
-    "id": 7,
+    "id": 9,
     "title": "Disco-AI",
     "description": "An AI-powered Discord bot with chat features, automation tools, polls, summaries, and reminder management.",
     "githubLink": "https://github.com/aayushkdev/disco-ai",
     "tech": ["Python", "discord.py", "PostgreSQL"]
   },
   {
-    "id": 8,
+    "id": 10,
     "title": "nmsurf",
     "description": "A minimal NetworkManager frontend in Go for launcher-based environments like Wofi and Rofi, enabling fast Wi-Fi management.",
     "githubLink": "https://github.com/aayushkdev/nmsurf",
     "tech": ["Go", "NetworkManager", "Wofi"]
   },
   {
-    "id": 9,
+    "id": 11,
     "title": "Lofi",
     "description": "A minimal lofi music listening website built with React, featuring animated backgrounds and keyboard-driven controls.",
     "githubLink": "https://github.com/aayushkdev/lofi",
@@ -70,21 +84,21 @@
     "tech": ["React", "TailwindCSS"]
   },
   {
-    "id": 10,
+    "id": 12,
     "title": "Vellorun",
     "description": "A gamified exploration app with AI-driven suggestions, XP progression, and interactive map-based discovery.",
     "githubLink": "https://github.com/aayushkdev/vellorun-backend",
     "tech": ["Go", "PostgreSQL", "Gen AI"]
   },
   {
-    "id": 11,
+    "id": 13,
     "title": "2D Car Racer",
     "description": "A 2D racing game built with Python and Pygame featuring obstacle generation and real-time scoring.",
     "githubLink": "https://github.com/aayushkdev/2d-car-racer",
     "tech": ["Python", "Pygame", "SDL"]
   },
   {
-    "id": 12,
+    "id": 14,
     "title": "Elecshion",
     "description": "A desktop voting system built with Python for managing school elections with CSV imports and graphical result visualization.",
     "githubLink": "https://github.com/aayushkdev/E-voting-Software",
