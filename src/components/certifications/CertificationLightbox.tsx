@@ -63,16 +63,27 @@ function CertificationLightbox({ certification, index, onClose }: CertificationL
           className="max-h-[85vh] max-w-[90vw] rounded bg-navy-light object-contain shadow-[0_20px_50px_-20px_rgba(2,12,27,0.9)]"
         />
 
-        {certification.credentialUrl && (
+        <div className="flex flex-wrap items-center justify-center gap-x-[20px] gap-y-[8px]">
           <a
-            href={certification.credentialUrl}
+            href={certification.image}
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono text-[13px] text-accent transition-colors duration-300 hover:text-slate focus-visible:outline-none focus-visible:underline"
           >
-            Open credential link ↗
+            View certificate ↗
           </a>
-        )}
+
+          {certification.credentialUrl && (
+            <a
+              href={certification.credentialUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-[13px] text-accent transition-colors duration-300 hover:text-slate focus-visible:outline-none focus-visible:underline"
+            >
+              Open credential link ↗
+            </a>
+          )}
+        </div>
       </div>
     </div>
   )

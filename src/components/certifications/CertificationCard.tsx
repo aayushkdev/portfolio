@@ -25,17 +25,6 @@ const CertificationCard = memo(({ certification, index, onOpen }: CertificationC
           />
         </button>
 
-        {certification.credentialUrl && (
-          <a
-            href={certification.credentialUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Open credential link for certificate ${index + 1} (opens in new tab)`}
-            className="absolute right-[18px] top-[18px] z-10 flex h-[34px] w-[34px] items-center justify-center rounded bg-navy/90 text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          >
-            <img src="/images/icons/external.svg" alt="" className="icon-accent h-[18px] w-[18px]" />
-          </a>
-        )}
       </div>
     </li>
   )

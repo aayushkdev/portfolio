@@ -22,5 +22,15 @@
   {
     "id": 6,
     "image": "/images/certifications/gravitas-volunteer.jpg"
+  },
+  {
+    "id": 7,
+    "image": "/images/certifications/Deeplearning-supervised-ml.jpg",
+    "credentialUrl": "https://www.coursera.org/account/accomplishments/verify/NY90T4H3NB72"
+  },
+  {
+    "id": 8,
+    "image": "/images/certifications/oracle-genai-professional.jpg",
+    "credentialUrl": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=ACB200FC15905DA612804EC6D4222385C21C16A136A088C0253B97AC6B93D353"
   }
 ]
