@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "id": 1,
+    "image": "/images/certifications/gsoc-certificate.jpg"
+  },
+  {
+    "id": 2,
+    "image": "/images/certifications/rxgpt-internship.jpg"
+  },
+  {
+    "id": 3,
+    "image": "/images/certifications/yuusoft-internship.jpg"
+  },
+  {
+    "id": 4,
+    "image": "/images/certifications/cicada3301.jpg"
+  },
+  {
+    "id": 5,
+    "image": "/images/certifications/coderush2-0.jpg"
+  },
+  {
+    "id": 6,
+    "image": "/images/certifications/gravitas-volunteer.jpg"
+  }
+]

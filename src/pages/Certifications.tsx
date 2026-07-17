@@ -33,7 +33,7 @@ function Certifications() {
         </header>
 
         <div className="mx-auto max-w-[1600px]">
-          {certifications.length > 0 ? (
+          {certifications.length > 0 && (
             <ul className="grid list-none grid-cols-3 gap-[15px] p-0 max-[1000px]:grid-cols-2 max-[600px]:grid-cols-1">
               {certifications.map((certification, index) => (
                 <CertificationCard
@@ -44,10 +44,6 @@ function Certifications() {
                 />
               ))}
             </ul>
-          ) : (
-            <p className="text-center font-mono text-[14px] text-slate-muted">
-              Add JPG certificates to <span className="text-accent">public/images/certifications</span> to display them here.
-            </p>
           )}
         </div>
       </main>
