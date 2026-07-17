@@ -43,17 +43,20 @@ function CertificationLightbox({ certification, index, onClose }: CertificationL
         if (event.target === event.currentTarget) onClose()
       }}
     >
-      <div className="relative flex max-h-full max-w-[1200px] flex-col items-center gap-[18px]">
-        <button
-          ref={closeButtonRef}
-          type="button"
-          onClick={onClose}
-          className="absolute right-[-8px] top-[-8px] z-10 flex h-[38px] w-[38px] items-center justify-center rounded-full border border-accent bg-navy text-accent transition-all duration-300 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_var(--color-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          aria-label="Close certificate preview"
-        >
-          <span aria-hidden="true" className="text-[24px] leading-none">×</span>
-        </button>
+      <button
+        ref={closeButtonRef}
+        type="button"
+        onClick={onClose}
+        className="group absolute right-[25px] top-[25px] z-10 flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-[2px] border border-accent bg-navy text-accent transition-all duration-300 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_var(--color-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent max-[480px]:right-[15px] max-[480px]:top-[15px]"
+        aria-label="Close certificate preview"
+      >
+        <span aria-hidden="true" className="relative block h-[18px] w-[18px]">
+          <span className="absolute left-1/2 top-1/2 block h-[2px] w-[21px] -translate-x-1/2 -translate-y-1/2 rotate-45 bg-current transition-transform duration-300 group-hover:rotate-[135deg]" />
+          <span className="absolute left-1/2 top-1/2 block h-[2px] w-[21px] -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-current transition-transform duration-300 group-hover:-rotate-[135deg]" />
+        </span>
+      </button>
 
+      <div className="relative flex max-h-full max-w-[1200px] flex-col items-center gap-[18px]">
         <img
           src={certification.image}
           alt={`Certificate ${index + 1}`}
