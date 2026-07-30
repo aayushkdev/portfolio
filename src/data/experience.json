@@ -12,6 +12,17 @@
     ]
   },
   {
+    "company": "RxGPT",
+    "role": "Backend Engineer Intern",
+    "period": "Mar 2026 – May 2026",
+    "location": "Remote",
+    "description": [
+      "Built the backend for an AI-powered voice agent that automated appointment bookings, patient enquiries, and call routing.",
+      "Integrated Twilio telephony and Deepgram real-time speech processing to deliver a responsive AI receptionist experience.",
+      "Deployed backend services to production and configured infrastructure and monitoring for reliable, scalable operation."
+    ]
+  },
+  {
     "company": "Yuusoft",
     "role": "SDE Intern",
     "period": "Jul 2025 – Aug 2025",

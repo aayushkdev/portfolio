@@ -1,11 +1,11 @@
 [
   {
     "id": 1,
-    "title": "Torrcli",
-    "description": "A terminal-based BitTorrent client offering torrent management, searching, streaming, and downloading via an intuitive CLI.",
-    "githubLink": "https://github.com/aayushkdev/torrcli",
-    "tech": ["Python", "libtorrent", "Rich"],
-    "image": "torrcli.png"
+    "title": "Crate",
+    "description": "A daemonless container runtime written in Go supporting rootless/rootful containers, Linux namespace isolation, OCI image handling, and lightweight container lifecycle management.",
+    "githubLink": "https://github.com/aayushkdev/crate",
+    "tech": ["Go", "Linux Namespaces", "OCI", "Container Runtime"],
+    "image": "crate.png"
   },
   {
     "id": 2,
@@ -18,11 +18,11 @@
   },
   {
     "id": 3,
-    "title": "Crate",
-    "description": "A daemonless container runtime written in Go supporting rootless/rootful containers, Linux namespace isolation, OCI image handling, and lightweight container lifecycle management.",
-    "githubLink": "https://github.com/aayushkdev/crate",
-    "tech": ["Go", "Linux Namespaces", "OCI", "Container Runtime"],
-    "image": "crate.png"
+    "title": "Torrcli",
+    "description": "A terminal-based BitTorrent client offering torrent management, searching, streaming, and downloading via an intuitive CLI.",
+    "githubLink": "https://github.com/aayushkdev/torrcli",
+    "tech": ["Python", "libtorrent", "Rich"],
+    "image": "torrcli.png"
   },
   {
     "id": 4,
